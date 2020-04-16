@@ -1,0 +1,1 @@
+docker run --rm -e MYSQL_DATABASE=anuncios -e MYSQL_USER=anuncio -e MYSQL_PASSWORD=anuncios -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 mysql:5.7
