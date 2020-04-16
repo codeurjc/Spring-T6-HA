@@ -2,6 +2,8 @@ package es.sidelab;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +20,12 @@ public class AnuncioController {
 	
 	@Autowired
 	private AnuncioRepository repository;
+	
+	@PostConstruct
+	public void init() {
+		Anuncio anuncio = new Anuncio("Mew", "Vendo moto", "Pocos kilómetros");
+		repository.save(anuncio);
+	}
 	
 	@RequestMapping(value = "/anuncios", method = RequestMethod.GET)
 	public List<Anuncio> getAnuncios() {
